@@ -1,0 +1,348 @@
+:root {
+    --color-bg: #f0f2f5;
+    --color-surface: #ffffff;
+    --color-primary: #3b82f6;
+    --color-primary-hover: #2563eb;
+    --color-secondary: #e5e7eb;
+    --color-secondary-hover: #d1d5db;
+    --color-danger: #ef4444;
+    --color-danger-hover: #dc2626;
+    --color-text: #1f2937;
+    --color-text-secondary: #6b7280;
+    --color-border: #d1d5db;
+    --color-success: #10b981;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --radius: 0.5rem;
+    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --transition: all 0.2s ease;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-bg: #111827;
+        --color-surface: #1f2937;
+        --color-primary: #60a5fa;
+        --color-primary-hover: #3b82f6;
+        --color-secondary: #374151;
+        --color-secondary-hover: #4b5563;
+        --color-text: #f9fafb;
+        --color-text-secondary: #9ca3af;
+        --color-border: #4b5563;
+    }
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.5;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+}
+
+.container {
+    width: 100%;
+    max-width: 700px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    color: var(--color-text-secondary);
+}
+
+/* Card */
+.card {
+    background-color: var(--color-surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.card-content {
+    padding: 2rem;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.mode-tabs .tab-btn {
+    flex: 1;
+    padding: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    border-bottom: 2px solid transparent;
+    transition: var(--transition);
+}
+
+.mode-tabs .tab-btn:hover {
+    color: var(--color-primary);
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+.mode-tabs .tab-btn.active {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+}
+
+.key-tabs {
+    margin-bottom: 1.5rem;
+    border: none;
+    gap: 0.5rem;
+}
+
+.key-btn {
+    padding: 0.5rem 1rem;
+    background-color: var(--color-secondary);
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--color-text);
+    transition: var(--transition);
+}
+
+.key-btn.active {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+textarea, input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+textarea:focus, input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+textarea {
+    min-height: 150px;
+    resize: vertical;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.password-wrapper {
+    position: relative;
+    display: flex;
+}
+
+.password-wrapper input {
+    padding-right: 3rem;
+}
+
+#TogglePasswordBtn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    padding: 0 0.75rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    opacity: 0.6;
+    transition: var(--transition);
+}
+
+#TogglePasswordBtn:hover {
+    opacity: 1;
+}
+
+/* File Input */
+.file-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+input[type="file"] {
+    font-size: 0.9rem;
+}
+
+.file-display {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+}
+
+.hint {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    margin-top: 0.5rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--radius);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 1rem;
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.btn.primary {
+    background-color: var(--color-primary);
+    color: white;
+    width: 100%;
+}
+
+.btn.primary:hover:not(:disabled) {
+    background-color: var(--color-primary-hover);
+}
+
+.btn.secondary {
+    background-color: var(--color-secondary);
+    color: var(--color-text);
+}
+
+.btn.secondary:hover:not(:disabled) {
+    background-color: var(--color-secondary-hover);
+}
+
+.btn.danger {
+    background-color: var(--color-danger);
+    color: white;
+}
+
+.btn.danger:hover:not(:disabled) {
+    background-color: var(--color-danger-hover);
+}
+
+/* Notifications */
+.notification {
+    padding: 1rem;
+    border-radius: var(--radius);
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.notification.error {
+    background-color: rgba(239, 68, 68, 0.1);
+    border: 1px solid var(--color-danger);
+    color: var(--color-danger);
+}
+
+.notification.success {
+    background-color: rgba(16, 185, 129, 0.1);
+    border: 1px solid var(--color-success);
+    color: var(--color-success);
+}
+
+/* Result Section */
+.result-section {
+    margin-top: 2rem;
+    border-top: 1px solid var(--color-border);
+    padding-top: 2rem;
+}
+
+.result-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.result-actions .btn {
+    flex: 1;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+}
+
+/* Footer */
+footer {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+}
+
+footer a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.security-note {
+    margin-top: 0.5rem;
+    color: var(--color-success);
+    font-weight: 500;
+}
+
+/* Utilities */
+.hidden {
+    display: none !important;
+}
+
+@media (max-width: 480px) {
+    .card-content {
+        padding: 1.5rem;
+    }
+    
+    .result-actions {
+        flex-direction: column;
+    }
+    
+    .result-actions .btn {
+        width: 100%;
+    }
+}
