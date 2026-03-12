@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Безопасное шифрование текста прямо в браузере. Ваши данные никогда не покидают устройство.">
+    <title>Локальное Шифрование</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="module" src="js/app.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧩 SecureDay-Web</h1>
+            <p>Ваши данные шифруются прямо в браузере и никогда не передаются на сервер.</p>
+        </header>
+
+        <main class="card">
+            <!-- Mode Tabs (Encrypt/Decrypt) -->
+            <div class="tabs mode-tabs">
+                <button class="tab-btn active" data-tab="encrypt">Зашифровать</button>
+                <button class="tab-btn" data-tab="decrypt">Расшифровать</button>
+            </div>
+
+            <div class="card-content">
+                <!-- Key Type Tabs (Password/File) -->
+                <div class="tabs key-tabs">
+                    <button class="key-btn active" data-key="password">По паролю</button>
+                    <button class="key-btn" data-key="file">По файлу-ключу</button>
+                </div>
+
+                <!-- Input Section -->
+                <div class="input-section">
+                    <!-- Text Input -->
+                    <div class="form-group">
+                        <label for="TextInput" id="TextInputLabel">Текст для шифрования</label>
+                        <textarea id="TextInput" placeholder="Введите текст..."></textarea>
+                    </div>
+
+                    <!-- Password Input -->
+                    <div id="PasswordSection" class="form-group">
+                        <label for="PasswordInput">Пароль</label>
+                        <div class="password-wrapper">
+                            <input type="password" id="PasswordInput" placeholder="Введите пароль">
+                            <button type="button" id="TogglePasswordBtn" aria-label="Показать пароль">👁️</button>
+                        </div>
+                        
+                        <div id="ConfirmPasswordGroup">
+                            <label for="ConfirmPasswordInput">Подтвердите пароль</label>
+                            <input type="password" id="ConfirmPasswordInput" placeholder="Повторите пароль">
+                        </div>
+                    </div>
+
+                    <!-- File Key Input -->
+                    <div id="FileKeySection" class="form-group hidden">
+                        <label for="KeyFileInput">Файл-ключ</label>
+                        <div class="file-input-wrapper">
+                            <input type="file" id="KeyFileInput">
+                            <div class="file-display">
+                                <span id="FileName">Файл не выбран</span>
+                                <span id="FileSize"></span>
+                            </div>
+                        </div>
+                        <p class="hint">Выберите любой файл (изображение, документ), который будет служить ключом.</p>
+                    </div>
+
+                    <!-- Action Button -->
+                    <div class="actions">
+                        <button id="ActionBtn" class="btn primary">Зашифровать</button>
+                    </div>
+                </div>
+
+                <!-- Notifications -->
+                <div id="NotificationArea"></div>
+
+                <!-- Result Section -->
+                <div id="ResultSection" class="result-section hidden">
+                    <label for="ResultOutput">Результат</label>
+                    <textarea id="ResultOutput" readonly></textarea>
+                    
+                    <div class="result-actions">
+                        <button id="CopyBtn" class="btn secondary">Скопировать</button>
+                        <button id="DownloadBtn" class="btn secondary">Скачать</button>
+                        <button id="ClearBtn" class="btn danger">Очистить всё</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>
+                <a href="#" target="_blank">Исходный код</a> | 
+                Алгоритмы: PBKDF2 (600k итераций), AES-GCM (256 бит), SHA-256
+            </p>
+            <p>Автор: <a href="https://github.com/keenoptic/" target="_blank">keenoptic</a></p>
+            <p class="security-note">✅ Все вычисления происходят локально</p>
+        </footer>
+    </div>
+</body>
+</html>
