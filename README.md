@@ -1,5 +1,7 @@
 # 🧩 SecureDay-Web
 
+![SecureDay-Web](img/image.jpg)
+
 **SecureDay-Web** — это простой и надежный инструмент для шифрования текста прямо в вашем браузере. Ваши данные никогда не передаются на сервер: все криптографические операции выполняются локально на вашем устройстве.
 
 ---
@@ -35,6 +37,10 @@ python -m http.server
 ```bash
 npx http-server
 ```
+
+### Способ 4: Онлайн (GitHub Pages)
+Просто перейдите по ссылке:
+[https://keenoptic.github.io/SecureDay-Web/](https://keenoptic.github.io/SecureDay-Web/)
 
 ## 📖 Как использовать
 
