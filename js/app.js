@@ -81,6 +81,17 @@ function setupEventListeners() {
     dom.buttons.copy.addEventListener('click', copyResult);
     dom.buttons.download.addEventListener('click', downloadResult);
     dom.buttons.clear.addEventListener('click', clearAll);
+
+    // Global Enter key support
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            // If we are in a textarea, let it handle Enter normally (new line)
+            if (event.target.tagName === 'TEXTAREA') return;
+            
+            // Otherwise, trigger the action
+            handleAction();
+        }
+    });
 }
 
 function updateUI() {
